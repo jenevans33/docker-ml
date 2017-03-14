@@ -56,7 +56,47 @@ Example:
 $ docker run --name mlenv --rm -it -v $(pwd):/workspace -w /workspace -p 8888:8888 suryak/mlenv sh -c "jupyter notebook --ip=* --no-browser"
 
 # Next time
-$ docker start mlenv
+$ docker start mlenv   # Runs IPython Notebook by default; Background task. 
+$ docker exec -it bash  # Open shell
+$ docker stop mlenv # stop the container
 ```
 
 Open the notebook at: `http://localhost:8888/tree?token=xxxxx`
+
+### 2) Frequrently used docker comments
+
+```
+# check existing containers
+$ docker ps -a
+
+# check existing images
+$ docker images -a
+
+# remove image
+$ docker rmi suryak/mlenv
+
+# remove container
+$ docker rm <container name / id>
+
+# execute in container (interactive -it)
+$ docker exec -it <container name / id> <command>
+
+# start stopped containers (-i for interactive i.e., wait for user)
+$ docker start <container name / id>
+
+# stop container
+$ docker stop <container name / id>
+
+# pull image from docker hub
+$ docker pull suryak/mlenv 
+
+# push to hub
+$ docker push suryak/mlenv
+
+# build image
+$ cd <path to docker file>
+$ docker build -t <new-image-name> .
+```
+
+There are interesting ways to minimize redoing tasks. Keep an eye on them.
+
