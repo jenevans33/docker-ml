@@ -100,3 +100,7 @@ $ docker build -t <new-image-name> .
 
 There are interesting ways to minimize redoing tasks. Keep an eye on them.
 
+### 3) Issues
+
+- This bug on Mac is amusing: https://github.com/docker/for-mac/issues/371
+
