@@ -10,21 +10,33 @@ Reference: https://docs.docker.com/engine/getstarted/
 
 ## How to use
 
-### 1.a Install
+### 1.a) Install
 
-- `docker run suryak/mlenv` [or] follow 1.b
+- `docker run suryak/mlenv` or *follow 1.b*
 
-### 1.b Install
+### 1.b) Install
 
 1. Download this repository, open terminal and change directory into it
 2. `docker build -t <username>/mlenv .`
 3. `docker push <username>/mlenv`
 
-### 1.c Using IPython
+### 1.c) Using container
 
-`docker run suryak/mlenv --rm -ti ipython`
+```
+# Create IPython command line
+$ docker run --rm --name mlenv -ti suryak/mlenv ipython
 
-### 1.d IPython Notebook with docker environment
+# Restart the same container
+$ docker start -i mlenv
+
+# Open Bash
+$ docker exec -it mlenv bash
+
+# Stop the container explicitly if not using --rm
+$ docker stop mlenv
+```
+
+### 1.d) IPython Notebook with docker environment
 
 ```
 docker run 
@@ -39,8 +51,8 @@ docker run
 
 Example:
 
-
-docker run \
+# Create container the first time
+$ docker run \
        --name mlenv \
        --rm \
        -it \
@@ -48,6 +60,9 @@ docker run \
        -v /tmp/notebooks:/workspace \
        suryak/mlenv \
        /bin/bash -c "jupyter notebook --notebook-dir=/workspace --ip=* --port=8888 --no-browser"
+       
+# Next time
+$ docker start mlenv
 ```
 
 Open the notebook at: `http://localhost:8888/tree?token=xxxxx`
