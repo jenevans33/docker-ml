@@ -45,22 +45,16 @@ docker run
        [-it] <interactive>
        [-d] <run in the background>
        [-v path-in-local-filesystem:path-in-docker-filesystem] <mount the paths>
+       [-w path-in-docker-filesystem]
        -p 8888:8888 <port>
        suryak/mlenv <image>
-       /bin/bash -c "jupyter notebook --notebook-dir=/workspace --ip=* --port=8888 --no-browser"
+       sh -c "jupyter notebook --ip=* --no-browser"
 
 Example:
 
 # Create container the first time
-$ docker run \
-       --name mlenv \
-       --rm \
-       -it \
-       -p 8888:8888 \
-       -v /tmp/notebooks:/workspace \
-       suryak/mlenv \
-       /bin/bash -c "jupyter notebook --notebook-dir=/workspace --ip=* --port=8888 --no-browser"
-       
+$ docker run --name mlenv --rm -it -v $(pwd):/workspace -w /workspace -p 8888:8888 suryak/mlenv sh -c "jupyter notebook --ip=* --no-browser"
+
 # Next time
 $ docker start mlenv
 ```
