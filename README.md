@@ -1,2 +1,11 @@
-# docker-ml
-Docker with: Caffe, TensorFlow, SciKit Learn, OpenCV, NumPy, Pandas, IPython 
+# Docker ML
+
+## Docker image
+
+- Cloned from Caffe, CPU version
+- Python environment
+- Contains TensorFlow, Scikit-Learn Caffe, OpenCV, Numpy, Pandas, IPython
+
+## How to use
+
+- `docker run suryak/mlenv`
