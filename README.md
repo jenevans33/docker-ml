@@ -24,6 +24,30 @@ Reference: https://docs.docker.com/engine/getstarted/
 
 `docker run suryak/mlenv --rm -ti ipython`
 
-### 1.d IPython Notebook using docker environment
+### 1.d IPython Notebook with docker environment
 
-TOTO
+```
+docker run 
+       [--name] <container-name>
+       [--rm] <delete after exit>
+       [-it] <interactive>
+       [-d] <run in the background>
+       [-v path-in-local-filesystem:path-in-docker-filesystem] <mount the paths>
+       -p 8888:8888 <port>
+       suryak/mlenv <image>
+       /bin/bash -c "jupyter notebook --notebook-dir=/workspace --ip=* --port=8888 --no-browser"
+
+Example:
+
+
+docker run \
+       --name mlenv \
+       --rm \
+       -it \
+       -p 8888:8888 \
+       -v /tmp/notebooks:/workspace \
+       suryak/mlenv \
+       /bin/bash -c "jupyter notebook --notebook-dir=/workspace --ip=* --port=8888 --no-browser"
+```
+
+Open the notebook at: `http://localhost:8888/tree?token=xxxxx`
