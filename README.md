@@ -6,7 +6,7 @@ Reference: https://docs.docker.com/engine/getstarted/
 
 - Cloned from Caffe, CPU version
 - Ubuntu 16.04, Python 2.7.x environment
-- Contains TensorFlow, Scikit-Learn Caffe, OpenCV, Numpy, Pandas, IPython
+- Contains TensorFlow, Theano, Scikit-Learn Caffe, OpenCV, Numpy, Pandas, IPython
 
 ## How to use
 
@@ -24,7 +24,7 @@ Reference: https://docs.docker.com/engine/getstarted/
 
 ```
 # Create IPython command line
-$ docker run --rm --name mlenv -ti suryak/mlenv ipython
+$ docker run --name mlenv -ti suryak/mlenv ipython
 
 # Restart the same container
 $ docker start -i mlenv
@@ -53,7 +53,7 @@ docker run
 Example:
 
 # Create container the first time
-$ docker run --name mlenv --rm -it -v $(pwd):/workspace -w /workspace -p 8888:8888 suryak/mlenv sh -c "jupyter notebook --ip=* --no-browser"
+$ docker run --name mlenv -it -v $(pwd):/workspace -w /workspace -p 8888:8888 suryak/mlenv sh -c "jupyter notebook --ip=* --no-browser"
 
 # Next time
 $ docker start mlenv   # Runs IPython Notebook by default; Background task. 
@@ -63,7 +63,7 @@ $ docker stop mlenv # stop the container
 
 Open the notebook at: `http://localhost:8888/tree?token=xxxxx`
 
-### 2) Frequrently used docker comments
+### 2) Frequrently used docker commands
 
 ```
 # check existing containers
