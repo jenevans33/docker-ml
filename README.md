@@ -96,6 +96,10 @@ $ docker push suryak/mlenv
 # build image
 $ cd <path to docker file>
 $ docker build -t <new-image-name> .
+
+# update container changes to image
+$ docker commit <container-id>/name <image-id/name>
+$ docker push
 ```
 
 There are interesting ways to minimize redoing tasks. Keep an eye on them.
