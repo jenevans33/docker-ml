@@ -13,6 +13,7 @@ Reference: https://docs.docker.com/engine/getstarted/
 ### 1.a) Install
 
 - `docker run suryak/mlenv` or *follow 1.b*
+- `docker run suryak/mlenv-gpu` for GPU enabled
 
 ### 1.b) Install
 
